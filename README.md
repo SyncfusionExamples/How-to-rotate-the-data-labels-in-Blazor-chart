@@ -1,31 +1,33 @@
 # How-to-rotate-the-data-labels-in-Blazor-chart
 
-This article explains how rotate the data labels in blazor chart component.
+This article explains how to rotate the data labels in Blazor Chart Component.
 
-**Rotating data label in Blazor chart**
+**Rotating data labels in Blazor chart**
 
-[Blazor Chart](https://www.syncfusion.com/blazor-components/blazor-charts) provides the support to rotate data label. Data label can be rotated by setting the  [EnableRotation](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.ChartDataLabel.html#Syncfusion_Blazor_Charts_ChartDataLabel_EnableRotation) property to true and by setting the angle(in degrees) to the [Angle](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.ChartDataLabel.html#Syncfusion_Blazor_Charts_ChartDataLabel_Angle) property of [ChartDataLabel](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.ChartDataLabel.html#Syncfusion_Blazor_Charts_ChartDataLabel__ctor).
+[Blazor Chart](https://www.syncfusion.com/blazor-components/blazor-charts) provides the support to rotate data label. Data label can be rotated by setting the  [EnableRotation](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.ChartDataLabel.html#Syncfusion_Blazor_Charts_ChartDataLabel_EnableRotation) property to **true** and by setting the angle(in degrees) to the [Angle](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.ChartDataLabel.html#Syncfusion_Blazor_Charts_ChartDataLabel_Angle) property of [ChartDataLabel](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.ChartDataLabel.html#Syncfusion_Blazor_Charts_ChartDataLabel__ctor).
 
-The Following Code example illustrates this.
+The following Code example illustrates this.
 
-**C#**
+**Index.razor**
 
-```cshtml
+```cshtml 
 
 @using Syncfusion.Blazor.Charts
 
 <SfChart>
 
-    <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category"/>
+    <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category" /> 
 
     <ChartSeriesCollection>
-        <ChartSeries DataSource="@WeatherReports" XName="X" YName="Y" Type="ChartSeriesType.Line">
-            <ChartMarker>
-                <ChartDataLabel Visible="true" EnableRotation="true" Position="Syncfusion.Blazor.Charts.LabelPosition.Middle" Angle="45"/>
+        <ChartSeries DataSource="@WeatherReports" XName="X" YName="Y" Type="ChartSeriesType.Column">
+            <ChartMarker>               
+                <ChartDataLabel Visible="true" EnableRotation="true" Position="Syncfusion.Blazor.Charts.LabelPosition.Middle" Angle="45">
+                    <ChartDataLabelFont Size="20" ></ChartDataLabelFont>                    
+                </ChartDataLabel>                
             </ChartMarker>
         </ChartSeries>
     </ChartSeriesCollection>
-    
+
 </SfChart>
 
 @code {
@@ -42,17 +44,16 @@ The Following Code example illustrates this.
         new Data{ X= "Feb", Y= 3.5 },
         new Data{ X= "Mar", Y= 7 },
         new Data{ X= "Apr", Y= 13.5 }
-    };
-
+    };     
 }
 
 ```
 
-The following screenshot illustrate the output of the above code snippet.
+The following screenshot illustrates the output of the above code snippet.
 
 **Output:**
 
-![](/datalabel-rotation.png)
+![Roatated datalabel](/datalabel-rotation.png)
 
 **Conclusion**
 
