@@ -4,12 +4,14 @@
 
 <SfChart>
 
-    <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category" />
+    <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category"/> 
 
     <ChartSeriesCollection>
-        <ChartSeries DataSource="@WeatherReports" XName="X" YName="Y" Type="ChartSeriesType.Line">
-            <ChartMarker>
-                <ChartDataLabel Visible="true" EnableRotation="true" Position="Syncfusion.Blazor.Charts.LabelPosition.Middle" Angle="45" />
+        <ChartSeries DataSource="@WeatherReports" XName="X" YName="Y" Type="ChartSeriesType.Column">
+            <ChartMarker>               
+                <ChartDataLabel Visible="true" EnableRotation="true" Position="Syncfusion.Blazor.Charts.LabelPosition.Middle" Angle="45">
+                    <ChartDataLabelFont Size="20"></ChartDataLabelFont>                    
+                </ChartDataLabel>                
             </ChartMarker>
         </ChartSeries>
     </ChartSeriesCollection>
@@ -30,6 +32,6 @@
         new Data{ X= "Feb", Y= 3.5 },
         new Data{ X= "Mar", Y= 7 },
         new Data{ X= "Apr", Y= 13.5 }
-    };
+    };     
 }
 
