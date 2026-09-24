@@ -1,66 +1,77 @@
-# How-to-rotate-the-data-labels-in-Blazor-chart
+# How to Rotate Data Labels in Syncfusion Blazor Chart
 
-This article explains how to rotate the data labels in Blazor Chart Component.
+## Overview
 
-**Rotating data labels in Blazor chart**
+This sample demonstrates how to rotate data labels in a Syncfusion [Blazor Charts](https://www.syncfusion.com/blazor-components/blazor-charts) column chart. The implementation binds a collection of weather report data to a column series and displays data labels directly within each column using the built-in chart data label feature.
 
-[Blazor Chart](https://www.syncfusion.com/blazor-components/blazor-charts) provides the support to rotate data label. Data label can be rotated by setting the  [EnableRotation](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.ChartDataLabel.html#Syncfusion_Blazor_Charts_ChartDataLabel_EnableRotation) property to **true** and by setting the angle(in degrees) to the [Angle](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.ChartDataLabel.html#Syncfusion_Blazor_Charts_ChartDataLabel_Angle) property of [ChartDataLabel](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.ChartDataLabel.html#Syncfusion_Blazor_Charts_ChartDataLabel__ctor).
+Rotating data labels can improve visual presentation and readability when labels need to follow a specific orientation or align with custom design requirements. This sample shows how to enable data label rotation, define a rotation angle, customize label appearance, and position labels inside chart columns.
 
-The following Code example illustrates this.
+## Key Features
 
-**Index.razor**
+- Uses the `SfChart` component to render a chart.
+- Configures a categorical x-axis using `ChartPrimaryXAxis` with `ValueType="ValueType.Category"`.
+- Binds data through the `DataSource` property of `ChartSeries`.
+- Maps category values with the `XName` property.
+- Maps numeric values with the `YName` property.
+- Renders a column chart using `Type="ChartSeriesType.Column"`.
+- Displays series labels using `ChartDataLabel`.
+- Enables label visibility through `Visible="true"`.
+- Rotates labels using `EnableRotation="true"`.
+- Applies a custom rotation angle through `Angle="45"`.
+- Positions labels inside the column using `Position="LabelPosition.Middle"`.
+- Customizes label appearance using `ChartDataLabelFont`.
+- Uses a strongly typed data model containing `X` and `Y` properties for chart binding.
 
-```cshtml 
+## Prerequisites
 
-@using Syncfusion.Blazor.Charts
+- [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
+- [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet) compatible with the project's target framework
 
-<SfChart>
+## How to Run the Project
 
-    <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category" /> 
+**Visual Studio 2022**
 
-    <ChartSeriesCollection>
-        <ChartSeries DataSource="@WeatherReports" XName="X" YName="Y" Type="ChartSeriesType.Column">
-            <ChartMarker>               
-                <ChartDataLabel Visible="true" EnableRotation="true" Position="Syncfusion.Blazor.Charts.LabelPosition.Middle" Angle="45">
-                    <ChartDataLabelFont Size="20" ></ChartDataLabelFont>                    
-                </ChartDataLabel>                
-            </ChartMarker>
-        </ChartSeries>
-    </ChartSeriesCollection>
+1. Clone or download this repository.
+2. Open the `DataLabelRotation.csproj` project file.
+3. Restore all NuGet packages.
+4. Build the project.
+5. Run the application using `Ctrl+F5`.
 
-</SfChart>
+**Visual Studio Code**
 
-@code {
+1. Clone or download this repository.
+2. Open the repository folder in Visual Studio Code.
+3. Open the integrated terminal.
+4. Navigate to the project directory.
 
-    public class Data
-    {
-        public string X { get; set; }
-        public double Y { get; set; }
-    }
-
-    public List<Data> WeatherReports = new List<Data>
-    {
-        new Data{ X= "Jan", Y= 3 },
-        new Data{ X= "Feb", Y= 3.5 },
-        new Data{ X= "Mar", Y= 7 },
-        new Data{ X= "Apr", Y= 13.5 }
-    };     
-}
-
+```bash
+cd DataLabelRotation
 ```
 
-The following screenshot illustrates the output of the above code snippet.
+5. Restore NuGet packages:
 
-**Output:**
+```bash
+dotnet restore
+```
 
-![Roatated datalabel](/datalabel-rotation.png)
+6. Run the application:
 
-**Conclusion**
+```bash
+dotnet run
+```
 
-I hope you enjoyed learning how to rotate data label of Blazor Chart Component.
+7. Open the local URL displayed in the console output.
 
-You can refer to our [Blazor Chart feature tour](https://www.syncfusion.com/blazor-components/blazor-charts) page to know about its other groundbreaking feature representations and [documentation](https://blazor.syncfusion.com/documentation/chart/getting-started), and how to quickly get started for configuration specifications. You can also explore our [Blazor Chart example](https://blazor.syncfusion.com/demos/chart/line?theme=bootstrap5) to understand how to create and manipulate data.
+## Project Structure
 
-For current customers, you can check out our components from the [License and Downloads](https://www.syncfusion.com/sales/teamlicense) page. If you are new to Syncfusion, you can try our 30-day [free trial](https://www.syncfusion.com/downloads/blazor) to check out our other controls.
+`DataLabelRotation/Pages/Index.razor` — Implements the Syncfusion Blazor Chart sample demonstrating rotated data labels using `ChartDataLabel`, `EnableRotation`, and `Angle`.
 
-If you have any queries or require clarifications, please let us know in the comments section below. You can also contact us through our [support forums](https://www.syncfusion.com/forums), [support portal](https://support.syncfusion.com/create), or [feedback portal](https://www.syncfusion.com/feedback/blazor-components?control=charts). We are always happy to assist you!
+## Support and Feedback
+
+- For general product questions, visit the [Syncfusion Community Forum](https://www.syncfusion.com/forums) or [Syncfusion Support](https://www.syncfusion.com/support).
+- To report an issue specific to this sample, open a GitHub issue in this repository.
+- Refer to the official Syncfusion Blazor Chart data label documentation: https://help.syncfusion.com/chart-sdk/blazor/charts/data-labels
+
+## License
+
+This is a Syncfusion sample project provided to demonstrate product usage. Review the [Syncfusion license terms](https://www.syncfusion.com/sales/pricing?category=ui-components) before using Syncfusion components in your own applications.
